@@ -2,7 +2,7 @@
 
 ## Overview
 
-The code generation is done is several cycles:
+The code generation is done by several cycles:
 
 1. For each class in the model
 	1. Create a bare class
@@ -15,7 +15,7 @@ The code generation is done is several cycles:
 
 ## Classes
 
-For each `FAMIXClass` in the model a class in the system will be created.
+For each `FAMIXClass` in the model, a class in the target system will be created.
 The classes are topologically sorted, thus parent classes are created before child ones.
 
 The model is always tied to one specified package, where all the classes will be created.
@@ -42,12 +42,12 @@ For the rest, a variable is added to the appropriate side.
 ### Accessors
 
 In addition, a user may want to generate accessors for the variables.
-Because attributes in Pharo are always private, the UML visibility specification is meaningless and we can use it as a convenience to show, that user wants accessors.
+Because attributes in Pharo are always private, the UML visibility specification is meaningless and we can use it as a convenience to specify that user wants accessors.
 
 By default, only regular accessors are generated, named after the variable; e.g. for variable `name`, a `#name` getter and `#name:` setter will be created.
 Additionally the generator can be configured to create `#addX:` and `#removeX:` accessors for multivalued attributes (attributes with multiplicity > 1).
 
-Finally, special pragma-based annotations containing all information necessary for reverse-engineering are added into getter method.
+Finally, special pragma-based annotations containing all information necessary for reverse-engineering are added into getter method. Ex:
 
 `<DCProperty: #propertyName type: #Type multiplicity: #(lower upper)>`.
 
